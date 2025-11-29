@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mardochée EMBENA DALE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de couleurs */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #2980b9;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --white: #ffffff;
+            --gray: #95a5a6;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fa;
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Layout principal */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px var(--shadow);
+            min-height: 100vh;
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 300px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 30px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .profile p {
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .nav-links li {
+            margin-bottom: 15px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--secondary);
+        }
+
+        .nav-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            width: 20px;
+            color: var(--secondary);
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            background-color: var(--white);
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            background-color: var(--light);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--secondary);
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+        }
+
+        /* Profil Section */
+        .profile-text {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Éducation Section */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+        }
+
+        /* Expérience Section */
+        .experience-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--light);
+            transition: border-color 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--secondary);
+        }
+
+        .experience-item h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Compétences Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Langues Section */
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language-item {
+            background-color: var(--light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .language-item h3 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .language-level {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 30px 20px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links li {
+                margin-bottom: 0;
+            }
+            
+            .nav-links a {
+                padding: 10px 15px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .languages {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-title i {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barre latérale -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>Mardochée EMBENA DALE</h1>
+                <p>Étudiant, Stagiaire Polyvalent</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#profil" class="active"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="#competences"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="#langues"><i class="fas fa-language"></i> Langues</a></li>
+            </ul>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>07 Rue Akrach BIS E00015, Tabriquet-Bettana 11000 Salé/Maroc</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+212 77 631 66 28</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>mardoembena2@gmail.com</span>
+                </div>
+            </div>
+            
+            <a href="#" class="download-btn" id="download-pdf">
+                <i class="fas fa-download"></i> Télécharger le CV PDF
+            </a>
+        </aside>
+        
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <!-- Section Profil -->
+            <section id="profil" class="section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    <h2>Profil</h2>
+                </div>
+                <div class="profile-text">
+                    <p>Étudiant, stagiaire polyvalent, dynamique, courageux et rigoureux, je bénéficie d'une expérience diversifiée dans plusieurs secteurs, allant de l'accueil à la bureautique, en passant par le service, la conduite et la photographie.</p>
+                    <p>Mon parcours m'a permis d'acquérir une grande capacité d'adaptation, un bon sens de la communication et un esprit d'initiative. J'ai travaillé en tant qu'opérateur de saisie, assistant en centre de formation informatique (bureautique), serveur, chauffeur et encadreur d'enfants dans un cadre éducatif.</p>
+                    <p>Actuellement étudiant en sciences à Rabat et passionné par les outils numériques, je développe en parallèle mes compétences en design (Illustrator, Canva), web (WordPress) bureautique (Word, PowerPoint, Publisher) et création de contenu (CapCut, Photoshop débutant).</p>
+                    <p>Ma motivation, ma facilité d'apprentissage et mon ouverture culturelle me permettent de m'intégrer rapidement dans toute structure, en contribuant efficacement aux objectifs fixés.</p>
+                </div>
+            </section>
+            
+            <!-- Section Éducation -->
+            <section id="education" class="section">
+                <div class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h2>Éducation</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023-2025</div>
+                        <div class="timeline-content">
+                            <h3>Étude Universitaire en cours</h3>
+                            <p>Faculté de Science RABAT/Maroc</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020-2021</div>
+                        <div class="timeline-content">
+                            <h3>Étude Secondaire (Baccalauréat)</h3>
+                            <p>INSTITUT MADRANDELE/RDC - Obtention diplôme d'état</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2014-2015</div>
+                        <div class="timeline-content">
+                            <h3>Étude Primaire</h3>
+                            <p>Collège Polytechnique St Paul/RDC - Obtention de certificat primaire</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Expérience -->
+            <section id="experience" class="section">
+                <div class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>Expérience Professionnelle</h2>
+                </div>
+                <div class="experience-item">
+                    <h3>Stagiaire à La Société Congolaise des Postes et Télécommunications/RDC</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Stagiaire à la Régie de voie aérienne (RVA)/RDC</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Chauffeur Personnel</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Livreur</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Serveur</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Photographe en formation</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Opérateur de saisie dans une bureautique</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Assistant dans un centre de formation en informatique bureautique</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Service d'accueil</h3>
+                </div>
+                <div class="experience-item">
+                    <h3>Encadreur des enfants (Ecodim)</h3>
+                </div>
+            </section>
+            
+            <!-- Section Compétences -->
+            <section id="competences" class="section">
+                <div class="section-title">
+                    <i class="fas fa-code"></i>
+                    <h2>Compétences</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Design & Multimédia</h3>
+                        <ul class="skill-list">
+                            <li>Canva</li>
+                            <li>Illustrator</li>
+                            <li>Photoshop (débutant)</li>
+                            <li>CapCut</li>
+                            <li>Photographie</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Bureautique & Web</h3>
+                        <ul class="skill-list">
+                            <li>Word</li>
+                            <li>PowerPoint</li>
+                            <li>Publisher</li>
+                            <li>WordPress</li>
+                            <li>Google Ads</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Autres Compétences</h3>
+                        <ul class="skill-list">
+                            <li>Conduite (Permis A-B)</li>
+                            <li>Leadership Serviteur</li>
+                            <li>Stratégie de développement personnel</li>
+                            <li>Encadrement d'enfants</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Langues -->
+            <section id="langues" class="section">
+                <div class="section-title">
+                    <i class="fas fa-language"></i>
+                    <h2>Langues</h2>
+                </div>
+                <div class="languages">
+                    <div class="language-item">
+                        <h3>Français</h3>
+                        <div class="language-level">Courant</div>
+                    </div>
+                    <div class="language-item">
+                        <h3>Anglais</h3>
+                        <div class="language-level">Élémentaire</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation fluide
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Retirer la classe active de tous les liens
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Ajouter la classe active au lien cliqué
+                this.classList.add('active');
+                
+                // Faire défiler jusqu'à la section cible
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mettre à jour la navigation active lors du défilement
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Simulation du téléchargement du PDF
+        document.getElementById('download-pdf').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Dans une version réelle, votre CV serait téléchargé au format PDF.');
+            // Ici, vous pouvez ajouter la logique pour générer/télécharger un PDF réel
+        });
+        
+        // Animation des sections au défilement
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Initialiser l'observation des sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
